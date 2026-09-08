@@ -1,0 +1,35 @@
+UTC: 2026-09-08T14:23:14.991177+00:00
+Command: python3 -m unittest discover -s tests -v
+
+test_api_exception_does_not_leak_secrets_or_replace_feed (test_feed.ApiTests) ... ok
+test_bulk_resume_uses_saved_id_without_new_submission (test_feed.ApiTests) ... ok
+test_completed_bulk_and_count_mismatch (test_feed.ApiTests) ... ok
+test_credential_exchange (test_feed.ApiTests) ... ok
+test_download_has_no_admin_header (test_feed.ApiTests) ... ok
+test_failed_bulk_never_downloads_partial_data (test_feed.ApiTests) ... ok
+test_http_retry_and_no_retry_auth (test_feed.ApiTests) ... ok
+test_throttled_retry (test_feed.ApiTests) ... ok
+test_all_variants_missing_id_publish_empty_feed (test_feed.FeedTests) ... ok
+test_bulk_scale (test_feed.FeedTests) ... ok
+test_category_cycles (test_feed.FeedTests) ... ok
+test_duplicates_are_fatal_even_with_skip (test_feed.FeedTests) ... ok
+test_empty_and_large_drop_are_rejected (test_feed.FeedTests) ... ok
+test_invalid_prices_preserve_previous (test_feed.FeedTests) ... ok
+test_last_good_survives_missing_required_fields (test_feed.FeedTests) ... ok
+test_live_is_blocked_before_network (test_feed.FeedTests) ... ok
+test_lock (test_feed.FeedTests) ... ok
+test_market_currency_and_amount (test_feed.FeedTests) ... ok
+test_market_url_prefix (test_feed.FeedTests) ... ok
+test_missing_fields_exclude_only_affected_variant (test_feed.FeedTests) ... ok
+test_skip_is_default_and_updates_existing_feed_despite_large_drop (test_feed.FeedTests) ... ok
+test_unknown_inventory_fails_and_backorder_does_not_override_zero (test_feed.FeedTests) ... ok
+test_uuid_and_exact_parameters (test_feed.FeedTests) ... ok
+test_variants_escaping_and_stock (test_feed.FeedTests) ... ok
+test_xml_control_character_and_replace_failure_keep_good_file (test_feed.FeedTests) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.684s
+
+OK
+
+Exit code: 0

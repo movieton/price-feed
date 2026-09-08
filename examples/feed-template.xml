@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Шаблон фида каталога для Campaign Planner (feedFormat = 'yml', формат YML).
+     Обязательный минимум: у <offer> атрибут id + тег <name>; у <category> атрибут id + текст.
+     Всё остальное опционально. Кодировка строго UTF-8. -->
+<yml_catalog date="2026-08-31 12:00">
+  <shop>
+    <name>Название магазина</name>
+    <company>ООО «Компания»</company>
+    <url>https://example.ru</url>
+
+    <categories>
+      <!-- id обязателен; parentId — для дерева категорий; picture — опционально -->
+      <category id="1">Обувь</category>
+      <category id="2" parentId="1">Кроссовки</category>
+      <category id="3" parentId="1">Ботинки</category>
+    </categories>
+
+    <offers>
+      <!-- id обязателен (уникальный код товара на сайте).
+           uuid — обязательно, если есть связка в учетной системе: стабильный идентификатор для обновлений.
+           available: "true"/"false" (отсутствие атрибута = true). -->
+      <offer id="12345" uuid="a1b2c3d4-0000-0000-0000-000000012345" available="true">
+        <name>Кроссовки Example Runner GTX</name>          <!-- наименование товара ОБЯЗАТЕЛЬНО -->
+        <url>https://example.ru/product/12345/</url>       <!-- ссылка на страницу товара -->
+        <price>4990</price>                                <!-- цена, без валюты -->
+        <categoryId>2</categoryId>                         <!-- берётся первый categoryId (минимум 1) -->
+        <picture>https://example.ru/img/12345_1.jpg</picture> <!-- берётся первая картинка (одна обязательно) -->
+        <picture>https://example.ru/img/12345_2.jpg</picture>
+        <vendor>Example Brand</vendor>                     <!-- название бренда -->
+        <barcode>4600000000017</barcode>                   <!-- штрихкод -->
+
+        <!-- Названия param строго такие (регистр важен) — только они попадают в карточку товара -->
+        <param name="Артикул">EX-RUN-GTX-BLK</param>
+        <param name="Цвет">черный</param>
+        <param name="Пол">Мужской</param>
+        <param name="Возраст">Взрослый</param>
+        <param name="Сезон">Лето</param>
+        <param name="Вид активности">Бег</param>
+        <param name="Тип товара">Кроссовки</param>
+        <param name="Модельный год">2026</param>
+        <param name="Назначение">Тренировки</param>
+      </offer>
+
+      <offer id="12346" available="false">
+        <name>Ботинки Example Trek</name>
+        <url>https://example.ru/product/12346/</url>
+        <price>8990</price>
+        <categoryId>3</categoryId>
+        <picture>https://example.ru/img/12346_1.jpg</picture>
+        <vendor>Example Brand</vendor>
+        <param name="Артикул">EX-TREK-BRN</param>
+        <param name="Цвет">коричневый</param>
+        <param name="Пол">Женский</param>
+        <param name="Сезон">Зима</param>
+        <param name="Тип товара">Ботинки</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

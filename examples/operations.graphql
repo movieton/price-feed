@@ -1,0 +1,14 @@
+query Catalogue { productVariants(query: "product_status:active") { edges { node {
+      id title sku barcode price inventoryQuantity inventoryItem { tracked }
+      image { url } selectedOptions { name value }
+      product { id title handle status productType vendor onlineStoreUrl featuredImage { url } }
+    } } } }
+mutation Start($query: String!) {
+  bulkOperationRunQuery(query: $query) {
+    bulkOperation { id status } userErrors { field message }
+  }
+}
+query Poll($id: ID!) {
+  node(id: $id) { ... on BulkOperation { id status url errorCode objectCount } }
+}
+query Shop { shop { currencyCode } }

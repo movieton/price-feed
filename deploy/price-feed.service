@@ -1,0 +1,21 @@
+[Unit]
+Description=Shopify KIP catalogue export
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=pricefeed
+Group=pricefeed
+WorkingDirectory=/opt/price-feed
+EnvironmentFile=/etc/price-feed/credentials.env
+ExecStart=/usr/bin/python3 /opt/price-feed/feed.py --config /etc/price-feed/config.json
+TimeoutStartSec=45min
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/price-feed /var/www/price-feed
+StandardOutput=journal
+StandardError=journal

@@ -1,0 +1,54 @@
+{
+  "live_confirmed": false,
+  "shop_domain": "replace-me.myshopify.com",
+  "api_version": "2026-04",
+  "market": "",
+  "country": "FR",
+  "currency": "EUR",
+  "language": "",
+  "language_mode": "primary",
+  "price_mode": "base",
+  "catalog_query": "product_status:active",
+  "product_statuses": [
+    "ACTIVE"
+  ],
+  "availability": "tracked_aggregate_positive",
+  "availability_confirmed": false,
+  "missing_policy": "skip",
+  "min_offers": 0,
+  "max_skip_fraction": 1,
+  "max_drop_fraction": 1,
+  "shop": {
+    "name": "Тестовый магазин",
+    "company": "Демонстрационные данные",
+    "url": "https://example.com"
+  },
+  "categories": [
+    {
+      "id": "1",
+      "name": "Обувь"
+    },
+    {
+      "id": "2",
+      "name": "Кроссовки",
+      "parentId": "1"
+    }
+  ],
+  "category_map": {
+    "Кроссовки": "2"
+  },
+  "option_params": {
+    "Color": "Цвет"
+  },
+  "extra_data": "examples/extra-data.json",
+  "output": "runtime/public/feed.xml",
+  "state_dir": "runtime/private",
+  "request_timeout_seconds": 30,
+  "retries": 4,
+  "max_retry_delay_seconds": 120,
+  "bulk_timeout_seconds": 1800,
+  "poll_seconds": 10,
+  "download_timeout_seconds": 300,
+  "max_download_bytes": 268435456,
+  "storefront_base_url": ""
+}

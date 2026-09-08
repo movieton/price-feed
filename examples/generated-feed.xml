@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<yml_catalog date="2026-09-08 14:16">
+  <shop>
+    <name>Тестовый магазин</name>
+    <company>Демонстрационные данные</company>
+    <url>https://example.com</url>
+    <categories>
+      <category id="1">Обувь</category>
+      <category id="2" parentId="1">Кроссовки</category>
+    </categories>
+    <offers>
+      <offer id="1001" available="true">
+        <name>Runner &amp; Road &lt;GTX&gt; — черный / 42</name>
+        <url>https://example.com/products/runner?ref=kip&amp;variant=1001</url>
+        <price>99.90</price>
+        <categoryId>2</categoryId>
+        <picture>https://example.com/images/runner.jpg</picture>
+        <vendor>Brand &amp; Co</vendor>
+        <barcode>0460000000017</barcode>
+        <param name="Артикул">RUN-"BLACK"-42</param>
+        <param name="Цвет">черный</param>
+        <param name="Пол">Мужской</param>
+        <param name="Возраст">Взрослый</param>
+        <param name="Сезон">Лето</param>
+        <param name="Вид активности">Бег</param>
+        <param name="Тип товара">Кроссовки</param>
+        <param name="Модельный год">2026</param>
+        <param name="Назначение">Тренировки</param>
+      </offer>
+      <offer id="1002" available="false">
+        <name>Runner &amp; Road &lt;GTX&gt; — черный / 43</name>
+        <url>https://example.com/products/runner?ref=kip&amp;variant=1002</url>
+        <price>109.00</price>
+        <categoryId>2</categoryId>
+        <picture>https://example.com/images/runner.jpg</picture>
+        <vendor>Brand &amp; Co</vendor>
+        <param name="Артикул">RUN-"BLACK"-43</param>
+        <param name="Цвет">черный</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

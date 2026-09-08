@@ -1,0 +1,5 @@
+{ productVariants(query: "product_status:active") { edges { node {
+      id title sku barcode contextualPricing(context: {country: FR}) { price { amount currencyCode } } inventoryQuantity inventoryItem { tracked }
+      image { url } selectedOptions { name value }
+      product { id title handle status productType vendor onlineStoreUrl featuredImage { url } }
+    } } } }
