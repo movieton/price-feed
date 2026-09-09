@@ -1,15 +1,48 @@
 # Эксплуатация и диагностика
 
+## Кратко
+
+- Автоматический запуск на сервере: **каждый час** через `price-feed.timer`.
+- Первый запуск после старта сервера: через пять минут.
+- Ручной запуск на сервере: `sudo systemctl start price-feed.service`.
+- Результат: `/var/www/price-feed/feed.xml`.
+- При неуспешном запуске последняя корректная версия файла сохраняется.
+
+Проверить, что ежечасный таймер включён и увидеть следующий запуск:
+
+```sh
+systemctl status price-feed.timer
+systemctl list-timers price-feed.timer
+```
+
 ## Ручной запуск
 
-На сервере:
+На установленном сервере:
 
 ```sh
 sudo systemctl start price-feed.service
 sudo journalctl -u price-feed.service -n 50 --no-pager
 ```
 
-Локальный тест без Shopify:
+Команда `systemctl start` ожидает завершения генерации. После неё в журнале должно быть `"event": "success"`. Если сервис завершился с ошибкой, посмотреть полный журнал:
+
+```sh
+sudo journalctl -u price-feed.service --since "1 hour ago" --no-pager
+```
+
+Локальный ручной запуск с реальным Shopify и локальными защищёнными файлами:
+
+```sh
+cd /ПУТЬ/К/price-feed
+set -a
+source .env
+set +a
+python3 feed.py --config config.local.json
+```
+
+Локальные `.env`, `config.local.json` и каталог `runtime/` исключены из Git.
+
+Локальная демонстрация без обращения к Shopify:
 
 ```sh
 python3 -m unittest discover -s tests -v
