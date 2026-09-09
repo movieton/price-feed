@@ -18,7 +18,7 @@ import xml.etree.ElementTree as ET
 from shopify import Client, FeedError
 
 PARAMS = ('Артикул', 'Цвет', 'Пол', 'Возраст', 'Сезон', 'Вид активности', 'Тип товара', 'Модельный год', 'Назначение')
-REQUIRED = ('name', 'url', 'price', 'categoryId', 'picture')
+REQUIRED = ('name', 'url', 'price', 'currencyId', 'categoryId', 'picture')
 
 
 def emit(event, **fields):
@@ -130,6 +130,7 @@ def make_offer(v, c, extra):
     add(offer, 'name', title)
     add(offer, 'url', url)
     add(offer, 'price', amount)
+    add(offer, 'currencyId', c['currency'])
     add(offer, 'categoryId', c['category_map'].get(p.get('productType')))
     picture = (v.get('image') or p.get('featuredImage') or {}).get('url')
     if picture:
@@ -231,6 +232,8 @@ def validate(path, c, previous=None):
             if not offer.findtext(field, '').strip():
                 raise FeedError('missing_' + field)
         money(offer.findtext('price'))
+        if offer.findtext('currencyId') != c['currency']:
+            raise FeedError('currency_mismatch')
         if offer.findtext('categoryId') not in cats:
             raise FeedError('unknown_category')
         https(offer.findtext('url'))

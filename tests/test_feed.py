@@ -42,6 +42,7 @@ class FeedTests(unittest.TestCase):
         self.assertEqual([o.get('available') for o in offers], ['true', 'false'])
         self.assertIn('Runner & Road <GTX>', offers[0].findtext('name'))
         self.assertIn('variant=1002', offers[1].findtext('url'))
+        self.assertEqual([o.findtext('currencyId') for o in offers], ['EUR', 'EUR'])
         self.assertEqual(offers[0].findtext('barcode'), '0460000000017')
         self.assertIsNone(offers[1].find('barcode'))
         self.assertEqual(offers[0].find('param[@name="Артикул"]').text, 'RUN-"BLACK"-42')
@@ -119,6 +120,7 @@ class FeedTests(unittest.TestCase):
         self.c['price_mode'] = 'market'
         self.assertEqual(self.run_feed(), 0)
         self.assertEqual(self.xml().findtext('./shop/offers/offer/price'), '89.90')
+        self.assertEqual(self.xml().findtext('./shop/offers/offer/currencyId'), 'EUR')
         self.rows[0]['contextualPricing']['price']['currencyCode'] = 'USD'
         self.assertEqual(self.run_feed(), 0)
         self.assertEqual(self.log['reasons'], {'market_currency_mismatch': 1})

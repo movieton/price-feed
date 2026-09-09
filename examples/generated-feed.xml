@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<yml_catalog date="2026-09-08 14:16">
+<yml_catalog date="2026-09-09 11:15">
   <shop>
     <name>Тестовый магазин</name>
     <company>Демонстрационные данные</company>
@@ -13,6 +13,7 @@
         <name>Runner &amp; Road &lt;GTX&gt; — черный / 42</name>
         <url>https://example.com/products/runner?ref=kip&amp;variant=1001</url>
         <price>99.90</price>
+        <currencyId>EUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://example.com/images/runner.jpg</picture>
         <vendor>Brand &amp; Co</vendor>
@@ -31,6 +32,7 @@
         <name>Runner &amp; Road &lt;GTX&gt; — черный / 43</name>
         <url>https://example.com/products/runner?ref=kip&amp;variant=1002</url>
         <price>109.00</price>
+        <currencyId>EUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://example.com/images/runner.jpg</picture>
         <vendor>Brand &amp; Co</vendor>
